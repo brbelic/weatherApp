@@ -1,0 +1,58 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  padding: 20px;
+  background-color: #e0e0d1;
+}
+
+.city-box {
+  border-style: solid;
+  border-width: 1px;
+  padding: 2px;
+  background-color: #ebebe0;
+}
+
+.appTitle h2 {
+	margin: 0px;
+}
+
+.allDays {
+	background-color: #ebebe0;
+}
+
+.day {
+	border-style: solid;
+	border-width: 1px;
+	display: flex;
+}
+
+.day div {
+	border-left-style: dotted;
+	border-right-style: dotted;
+	border-width: 1px;
+}
+
+.daysHeading {
+	border-style: solid;
+	border-width: 1px;
+	background-color: #c2c2ba;
+	display: flex;
+}
+
+.temp-min {
+	background-color: #e6ffff;
+}
+
+.temp-max {
+	background-color: #ffe6e6;
+}
+
+.metric-button {
+	padding: 0px;
+}
+
+.map-col {
+	height: 40vh; 
+}
