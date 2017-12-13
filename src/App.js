@@ -18,7 +18,7 @@ const cityID = {
 };
 
 const apiPrefix = 'http://api.openweathermap.org/data/2.5/group?id=';
-const apiSuffix = '&appid=2ba1461abe8d1aafbdf03d6592eb9892';
+const apiSuffix = '&appid=2ba1461abe8d1aafbdf03d6592eb9892&callback=?';
 const searchedCityApiPref = 'http://api.openweathermap.org/data/2.5/weather?q=';
 
 class App extends Component {
@@ -37,11 +37,10 @@ class App extends Component {
             url: apiPrefix + Object.values(cityID).join(',') + apiSuffix,
             dataType: 'jsonp',
             context: this,
-            success: function (result) {
+        }).done(function (result) {
                 this.setState({
                     cityList: result.list,
                 });
-            },
         });
     }
 
@@ -70,10 +69,11 @@ class App extends Component {
         $.ajax({
             url: searchedCityApiPref + this.inputText.value + apiSuffix,
             dataType: 'jsonp',
-            context: this,
-            success: function (result) {
+            context: this
+        }).done(function (result) {
                 this.props.history.push(`/${result.id}`);
-            },
+        }).fail(function () {
+            alert('Something went wrong, try again.');
         });
         event.preventDefault();
     }
@@ -101,10 +101,10 @@ class App extends Component {
                                 <div className="col-xs-6 col-sm-6 col-md-6">
                                     <Link to={`/${city.id}`}>{city.name.toUpperCase()}</Link>
                                 </div>
-                                <div className="col-xs-2 col-sm-3 col-md-3">
+                                <div className="col-xs-3 col-sm-3 col-md-3">
                                     <Temp tempInKelvin={city.main.temp} displayUnit={this.state.unit} />
                                 </div>
-                                <div className="col-xs-4 col-sm-3 col-md-3">
+                                <div className="col-xs-3 col-sm-3 col-md-3">
                                     {city.weather[0].description}
                                 </div>
                             </div>
