@@ -1,14 +1,12 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  padding: 20px;
-  background-color: #e0e0d1;
+.main-body {
+	text-align: center;
+	padding: 20px;
+	background-image: linear-gradient(#e6eeff, #b3ffb3);
 }
 
 .city-box {
   border-style: solid;
+  font-size: 1.1em;
   border-width: 1px;
   padding: 2px;
   background-color: #ebebe0;
@@ -20,6 +18,7 @@
 
 .allDays {
 	background-color: #ebebe0;
+	font-size: 1.1em;
 }
 
 .day {
@@ -50,9 +49,13 @@
 }
 
 .metric-button {
-	padding: 0px;
+	padding: 5px;
 }
 
 .map-col {
 	height: 40vh; 
+}
+
+.map-container {
+	padding: 10px 0px;
 }
