@@ -83,41 +83,44 @@ class App extends Component {
         const lastUpdatedAt = new Date().toString();
 
         return (
-            <div className="main-body">
-                <div className="container">
+            <div className="main-body container">
                     <div className="row">
-                        <div className="appTitle col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-8 col-ms-offset-2">
+                        <div className="appTitle col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
                             <h2>Weather App</h2>
                         </div>
-                        <button className="metric-button col-xs-2 col-sm-2 col-md-2" onClick={this.handleClick}>
-                            C/F/K
-                        </button>
+                        <div className="metric-button col-xs-2 col-sm-2">
+                            <button type="button" className="btn btn-info bnt-block btn-xs" onClick={this.handleClick}>
+                                C/F/K
+                            </button>
+                        </div>
                     </div>
-                    <br />
+                    
                     {
                     this.state.cityList.map(city => (
                         <div className="city-box row" key={city.id}>
-                            <div className="col-xs-6 col-sm-6 col-md-6">
+                            <div className="city-name col-xs-9 col-sm-5 col-md-5">
                                 <Link to={`/${city.id}`}>{city.name.toUpperCase()}</Link>
                             </div>
-                            <div className="col-xs-3 col-sm-3 col-md-3">
+                            <div className="col-xs-3 col-sm-2 col-md-2">
                                 <Temp tempInKelvin={city.main.temp} displayUnit={this.state.unit} />
                             </div>
-                            <div className="col-xs-3 col-sm-3 col-md-3">
+                            <div className="col-xs-6 col-sm-3 col-md-3">
                                 {city.weather[0].description}
+                            </div>
+                            <div className="col-xs-6 col-sm-2 col-md-2">
+                                {city.main.humidity}%
                             </div>
                         </div>
                         ), this)
                     }
-                    <br />
-                    <div className="row">
+                    
+                    <div className="input row">
                         <InputForm
                             reference={(a) => { this.inputText = a; }}
                             searchCity={this.searchCity} />
                     </div>
                     <br />
                     <b>Last updated at: {lastUpdatedAt}</b>
-                </div>
             </div>
         );
     }

@@ -2,14 +2,18 @@ import React from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 const Location = ({ google, center }) => (
-    <Map google={google} zoom={5} initialCenter={{
-            lat: center.lat,
-            lng: center.lon
-          }}>
+	<div className="map-container row">
+		<div className="map-col col-xs-12">
+		    <Map google={google} zoom={7} initialCenter={{
+		            lat: center.lat,
+		            lng: center.lon
+		          }}>
 
-        <Marker
-            name={'Current location'} />
-    </Map>
+		        <Marker
+		            name={'Current location'} />
+		    </Map>
+		</div>
+	</div>
 );
 
 export default GoogleApiWrapper({

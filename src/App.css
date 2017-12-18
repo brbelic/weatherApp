@@ -12,25 +12,34 @@
   background-color: #ebebe0;
 }
 
+.city-name {
+	font-size: 1.3em;
+}
+
 .appTitle h2 {
-	margin: 0px;
+	margin-top: 0px;
 }
 
 .allDays {
-	background-color: #ebebe0;
 	font-size: 1.1em;
+}
+
+.detailedCityName h3{
+	margin: 0px;
 }
 
 .day {
 	border-style: solid;
 	border-width: 1px;
-	display: flex;
+	background-color: #ebebe0;
+	margin: 0px;
 }
 
 .day div {
 	border-left-style: dotted;
 	border-right-style: dotted;
 	border-width: 1px;
+	display: flex;
 }
 
 .daysHeading {
@@ -38,6 +47,7 @@
 	border-width: 1px;
 	background-color: #c2c2ba;
 	display: flex;
+	margin: 0px;
 }
 
 .temp-min {
@@ -52,10 +62,15 @@
 	padding: 5px;
 }
 
-.map-col {
-	height: 40vh; 
+.map-container {
+	margin: 10px 0px;
 }
 
-.map-container {
-	padding: 10px 0px;
+.map-col {
+	height: 400px;
+	padding: 0px;
+}
+
+.input {
+	margin: 10px 0px;
 }
