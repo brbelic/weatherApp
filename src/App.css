@@ -33,29 +33,21 @@
 	border-width: 1px;
 	background-color: #ebebe0;
 	margin: 0px;
+	padding: 0px;
+	opacity: 0.8;
+	box-shadow: 2px 4px #84e1e1;
 }
 
 .day div {
-	border-left-style: dotted;
-	border-right-style: dotted;
-	border-width: 1px;
 	display: flex;
+	padding: 0px;
+	align-items: center;
+	justify-content: center;
+	min-height: 3em;
 }
 
-.daysHeading {
-	border-style: solid;
-	border-width: 1px;
-	background-color: #c2c2ba;
-	display: flex;
-	margin: 0px;
-}
-
-.temp-min {
-	background-color: #e6ffff;
-}
-
-.temp-max {
-	background-color: #ffe6e6;
+.main-temp {
+	font-size: 1.5em;
 }
 
 .metric-button {
@@ -67,7 +59,7 @@
 }
 
 .map-col {
-	height: 400px;
+	height: 50vh;
 	padding: 0px;
 }
 

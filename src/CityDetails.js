@@ -82,26 +82,12 @@ class CityDetails extends Component {
                 <div className="cityDetails">
                     <div className="detailedCityName row">
                         <h3>{this.state.city.name.toUpperCase()}</h3>
+                        <span>Five days weather report.</span>
                     </div>
-                    <div className="allDays">
-                        <div className="daysHeading row">
-                            <div className="date col-xs-3 col-sm-3 col-md-3">
-                                <span>Date</span>
-                            </div>
-                            <div className="temp col-xs-2 col-sm-2 col-md-2">
-                                <span>Temp</span>
-                            </div>
-                            <div className="temp-min col-xs-2 col-sm-2 col-md-2">
-                                <span>Min. temp</span>
-                            </div>
-                            <div className="temp-max col-xs-2 col-sm-2 col-md-2">
-                                <span>Max. temp</span>
-                            </div>
-                            <div className="description col-xs-3 col-sm-3 col-md-3">
-                                <span>Desc.</span>
-                            </div>
+                    <div className="allDays row">
+                        <div className="days-container col-sm-10 col-sm-offset-2">
+                            <Day cityDetails={this.state.cityDetails} unit={this.state.unit}/>
                         </div>
-                        <Day cityDetails={this.state.cityDetails} unit={this.state.unit}/>
                     </div>
                         <Location center={this.state.city.coord} />
                 </div>

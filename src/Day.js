@@ -8,27 +8,39 @@ class Day extends React.Component {
 
         return (
             Object.keys(cityDetails).map((day, index) => (
-                <div className="day row" key={index}>
-                    <div className="date col-xs-12 col-sm-3 col-md-3">
+                <div className="day col-xs-12 col-sm-2" key={index}>
+                    <div className="date col-xs-12 col-sm-12">
                         {cityDetails[day].dt_txt}
                     </div>
-                    <div className="temp col-xs-4 col-sm-2 col-md-2">
-                        <Temp
-                            tempInKelvin={cityDetails[day].main.temp}
-                            displayUnit={unit} />
+                    <div className="temp col-xs-12 col-sm-12">
+                        <div className="description col-xs-6 col-sm-6">
+                            {cityDetails[day].weather[0].description}
+                        </div>
+                        <div className="main-temp col-xs-6 col-sm-6">
+                            <Temp
+                                tempInKelvin={cityDetails[day].main.temp}
+                                displayUnit={unit} />
+                        </div>
                     </div>
-                    <div className="temp-min col-xs-4 col-sm-2 col-md-2">
-                        <Temp
-                            tempInKelvin={cityDetails[day].main.temp_min}
-                            displayUnit={unit} />
+                    <div className="temp-min col-xs-6 col-sm-6">
+                        <div className="col-xs-4 col-sm-4">
+                            <span>Min</span>
+                        </div>
+                        <div className="col-xs-8 col-sm-8">
+                            <Temp
+                                tempInKelvin={cityDetails[day].main.temp_min}
+                                displayUnit={unit} />
+                        </div>
                     </div>
-                    <div className="temp-max col-xs-4 col-sm-2 col-md-2">
-                        <Temp
-                            tempInKelvin={cityDetails[day].main.temp_max}
-                            displayUnit={unit} />
-                    </div>
-                    <div className="description col-xs-12 col-sm-3 col-md-3">
-                        {cityDetails[day].weather[0].description}
+                    <div className="temp-max col-xs-6 col-sm-6">
+                        <div className="col-xs-4 col-sm-4">
+                            <span>Max</span>
+                        </div>
+                        <div className="col-xs-4 col-sm-8">
+                            <Temp
+                                tempInKelvin={cityDetails[day].main.temp_max}
+                                displayUnit={unit} />
+                        </div>
                     </div>
                 </div>
             ), this)
