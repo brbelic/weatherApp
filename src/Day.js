@@ -23,20 +23,20 @@ class Day extends React.Component {
                         </div>
                     </div>
                     <div className="temp-min col-xs-6 col-sm-6">
-                        <div className="col-xs-4 col-sm-4">
+                        <div className="col-xs-12 col-sm-12">
                             <span>Min</span>
                         </div>
-                        <div className="col-xs-8 col-sm-8">
+                        <div className="col-xs-12 col-sm-12">
                             <Temp
                                 tempInKelvin={cityDetails[day].main.temp_min}
                                 displayUnit={unit} />
                         </div>
                     </div>
                     <div className="temp-max col-xs-6 col-sm-6">
-                        <div className="col-xs-4 col-sm-4">
+                        <div className="col-xs-12 col-sm-12">
                             <span>Max</span>
                         </div>
-                        <div className="col-xs-4 col-sm-8">
+                        <div className="col-xs-12 col-sm-12">
                             <Temp
                                 tempInKelvin={cityDetails[day].main.temp_max}
                                 displayUnit={unit} />

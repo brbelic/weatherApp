@@ -10,6 +10,7 @@
   border-width: 1px;
   padding: 2px;
   background-color: #ebebe0;
+  box-shadow: 2px 4px #84e1e1;
 }
 
 .city-name {
@@ -63,6 +64,7 @@
 	padding: 0px;
 }
 
-.input {
-	margin: 10px 0px;
+.error{
+	margin: 10px 0px 0px 0px;
+	color: red;
 }

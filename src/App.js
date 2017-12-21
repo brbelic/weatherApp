@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './App.css';
 import Temp from './Temp';
 import InputForm from './InputForm';
+import Error from './Error';
 
 const cityID = {
     london: '2643741',
@@ -27,6 +28,7 @@ class App extends Component {
         this.state = {
             cityList: [],
             unit: 'c',
+            searchFailed: false,
         };
         this.handleClick = this.handleClick.bind(this);
         this.searchCity = this.searchCity.bind(this);
@@ -72,8 +74,13 @@ class App extends Component {
             context: this
         }).done(function (result) {
                 this.props.history.push(`/${result.id}`);
+                this.setState({
+                    searchFailed: false,
+                })
         }).fail(function () {
-            alert('Something went wrong, try again.');
+                this.setState({
+                    searchFailed: true,
+                })
         });
         event.preventDefault();
     }
@@ -113,7 +120,11 @@ class App extends Component {
                         </div>
                         ), this)
                     }
-                    
+                    <div className="error row">
+                        <Error 
+                            searchFailed={this.state.searchFailed} />
+                        
+                    </div>
                     <div className="input row">
                         <InputForm
                             reference={(a) => { this.inputText = a; }}
