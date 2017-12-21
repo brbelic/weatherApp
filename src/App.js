@@ -40,10 +40,14 @@ class App extends Component {
             dataType: 'jsonp',
             context: this,
         }).done(function (result) {
-                this.setState({
-                    cityList: result.list,
-                });
+                this.getInitialCities(result);
         });
+    }
+
+    getInitialCities(result) {
+        this.setState({
+            cityList: result.list,
+        })
     }
 
     handleClick() {

@@ -31,7 +31,13 @@ class CityDetails extends Component {
             dataType: 'jsonp',
             context: this,
             success: function (result) {
-                this.setState({
+                this.getDaysForCity(result);
+            },
+        });
+    }
+
+    getDaysForCity(result) {
+        this.setState({
                     fetched: true,
                     city: result.city,
                     cityDetails: {
@@ -43,8 +49,6 @@ class CityDetails extends Component {
                     },
                     unit: 'c',
                 });
-            },
-        });
     }
 
     handleClick() {
