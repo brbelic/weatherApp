@@ -29,6 +29,7 @@ class App extends Component {
             cityList: [],
             unit: 'c',
             searchFailed: false,
+            errorStatus: '',
         };
         this.handleClick = this.handleClick.bind(this);
         this.searchCity = this.searchCity.bind(this);
@@ -81,10 +82,12 @@ class App extends Component {
                 this.setState({
                     searchFailed: false,
                 })
-        }).fail(function () {
+        }).fail(function (jqXHR, textStatus, errorThrown) {
                 this.setState({
                     searchFailed: true,
+                    errorStatus: jqXHR.status,
                 })
+                console.log(JSON.stringify(jqXHR), textStatus, errorThrown); //for easier understanding of an error
         });
         event.preventDefault();
     }
@@ -124,10 +127,12 @@ class App extends Component {
                         </div>
                         ), this)
                     }
-                    <div className="error row">
+                    <div className='error row'>
+                    {
                         <Error 
+                            errorStatus={this.state.errorStatus}
                             searchFailed={this.state.searchFailed} />
-                        
+                    }
                     </div>
                     <div className="input row">
                         <InputForm
